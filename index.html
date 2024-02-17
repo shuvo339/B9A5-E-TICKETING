@@ -133,9 +133,9 @@
        <!-- bus ticket container starts -->
        <section class="lg:px-16 bg-[#F7F8F8] min-h-screen border-theme-color border-t-2 rounded-tl-[70px] rounded-tr-[70px]">
           <h1 class="font-raleway text-4xl font-bold text-center mt-[100px]">E Paribahan</h1>
-          <p class="mx-auto text-center max-w-[550px] opacity-70 pt-5 font-inter pb-10">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+          <p class="mx-auto text-center max-w-[550px] opacity-70 pt-4 font-inter pb-10">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
         <!-- single bus details -->
-            <div class="container bg-white rounded-2xl relative justify-between px-8 items-center flex py-8">
+            <div class="container bg-white rounded-2xl relative justify-between px-8 items-center flex py-7">
              <div class="flex-1">
               <div class="flex justify-between pb-4">
                 <div>
@@ -179,7 +179,7 @@
             </div>
 
               </div>
-              <img class="absolute bottom-1 right-[18%]" src="./images/info-devider.png" alt="">
+              <img class="absolute right-[18%]" src="./images/info-devider.png" alt="">
               <div class=" font-raleway pl-40 pr-8 flex flex-col items-center justify-center">
                 <img src="./images/fare.png" alt="">
                 <h1 class="text-2xl font-semibold pt-4">550 Taka</h1>
@@ -188,14 +188,84 @@
             </div>
 
             <!-- seat plan starts -->
-            <div class="grid grid-cols-3">
+            <div class="grid grid-cols-3 mt-10">
               <!-- select your seat -->
-              <div class="col-span-2">
+              <div class="col-span-2 border-r-2 border-dashed border-opacity-50 border-gray-500 p-6">
+                <h1 class="font-raleway text-xl font-semibold pb-6">Select Your Seat</h1>
+                <hr class="text-transparent mx-auto w-[100%] border-t-1 opacity-50 border-gray-500 border-dashed">
+                <div class="flex gap-2 justify-between items-center my-4 px-4">
+                  <div class="flex gap-2">
+                    <div>
+                      <img src="./images/seat-gray.png" alt="">
+                    </div>
+                    <p class="text-gray-600 font-semibold">Available</p>
+                  </div>
+                  <div class="flex gap-2">
+                    <div>
+                      <img src="./images/seat-green-filled.png" alt="">
+                    </div>
+                    <p class="text-theme-color font-semibold">selected</p>
+                  </div>
+                </div>
+                <hr class="text-transparent mx-auto w-[100%] border-t-1 opacity-50 border-gray-500 border-dashed">
+                <div class="flex justify-end">
+                  <div class="bg-[#0307120D] rounded-lg py-3 inline-block px-10 my-6">
+                    <img src="./images/steering.png" alt="">
+                  </div>
+                </div>
 
+                <!-- seat plan  -->
+                <div class="flex justify-around items-center">
+                  <p>A</p>
+                  <button class="btn px-12">A1</button>
+                  <button class="btn px-12">A2</button>
+                  <button class="btn px-12">A3</button>
+                  <button class="btn px-12">A4</button>
+                </div>
               </div>
               <!-- seat details -->
-              <div class="col-span-1">
-
+              <div class="col-span-1 p-6">
+                <h1 class="font-raleway text-xl font-semibold pb-6">Seat Details</h1>
+                <hr class="text-transparent mx-auto w-[100%] border-t-1 opacity-50 border-gray-500 border-dashed">
+              <table class="table">
+                  <tr>
+                    <th>Seat</th>
+                    <th>Class</th>
+                    <th>Price</th>
+                  </tr>
+                  <tr id="table-row">
+                    <td class="seat"></td>
+                    <td id="class"></td>
+                    <td id="price"></td>
+                  </tr>
+              </table>
+              <hr class="text-transparent mx-auto w-[100%] border-t-1 opacity-50 border-gray-500">
+              <div class="flex justify-between my-3">
+                <h1 class="font-semibold">Total Price</h1>
+                <h2 class="font-semibold">BDT <span id="total-price">0</span></h2>
+              </div>
+              <!-- coupon -->
+              <div class="flex">
+                <input type="text" placeholder="Have any coupon?" class="input w-full max-w-xs" />
+                <button class="btn bg-theme-color text-white">Apply</button>
+              </div>
+              <div class="flex justify-between my-3">
+                <h1 class="font-semibold">Grand Total</h1>
+                <h2 class="font-semibold">BDT <span id="grand-price">0</span></h2>
+              </div>
+              <form class="space-y-3" action="">
+                <label for="name">Passenger Name*</label>
+                <input type="text" placeholder="Enter your name" class="input input-bordered w-full" />
+                <label for="number">Phone Number*</label>
+                <input type="number" placeholder="Enter your phone number" class="input input-bordered w-full" />
+                <label for="email">Email ID</label>
+                <input type="email" placeholder="Enter your email id" class="input input-bordered w-full" />
+                <button class="btn bg-theme-color w-full">Next</button>
+              </form>
+              <div class="flex justify-around">
+                <p class="text-xs opacity-60 underline my-5">Terms and Conditions</p>
+                <p class="text-xs opacity-60 underline my-5">Cancellation Policy</p>
+              </div>
               </div>
             </div>
         </section>
