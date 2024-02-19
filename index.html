@@ -23,7 +23,7 @@
         </script>
 </head>
 <body>
-    <header class="container mx-auto lg:px-8 px-4">
+    <header id="top" class="container mx-auto lg:px-8 px-4">
         <!-- navbar starts -->
         <div class="navbar bg-base-100 font-raleway mt-6 mb-5">
             <div class="navbar-start">
@@ -103,6 +103,7 @@
               <h1 class="text-3xl font-bold">15% OFF</h1>
               <h3 class="text-xl font-semibold">on your next purchase</h3>
               <p class="opacity-85">use by January 2024</p>
+              <p class="opacity-80 text-xs pt-5">*Buy at least 4 tickets to get this discount.</p>
             </div>
             <img class="hidden lg:flex absolute right-[35%]" src="./images/cupon-devider.png" alt="">
             <div class=" font-raleway">
@@ -116,6 +117,7 @@
               <h1 class="text-3xl font-bold">20% OFF</h1>
               <h3 class="text-xl font-semibold">on your next purchase</h3>
               <p class="opacity-85">use by January 2024</p>
+              <p class="opacity-80 text-xs pt-5">*Buy at least 4 tickets to get this discount.</p>
             </div>
             <img class="hidden lg:flex absolute right-[35%]" src="./images/cupon-devider.png" alt="">
             <div class="col-span-1 font-raleway">
@@ -310,15 +312,16 @@
                 <h1 id="discount-text" class="font-semibold"></h1>
                 <h2 id="discount-price" class="font-semibold"></span></h2>
               </div>
-              <!-- coupon -->
+              <!-- coupon function-->
               <div class="flex gap-1">
                 <input id="coupon-text" type="text" placeholder="Have any coupon?" class="input w-full max-w-xs" />
-                <button onclick="discountedPrice()" id="coupon-btn" class="btn bg-theme-color text-white">Apply</button>
+                <button onclick="discountedPrice()" id="coupon-btn" class="btn bg-theme-color text-white" disabled>Apply</button>
               </div>
               <div class="flex justify-between my-3">
                 <h1 class="font-semibold">Grand Total</h1>
                 <h2 class="font-semibold">BDT <span id="grand-price">0</span></h2>
               </div>
+              <!-- form start -->
               <form class="space-y-6 mb-6" action="">
                 <div class="my-6">
                   <label for="name">Passenger Name*</label>
@@ -326,18 +329,15 @@
                 </div>
                <div class="my-6">
                 <label for="number">Phone Number*</label>
-                <input type="number" placeholder="Enter your phone number" class="input input-bordered w-full" />
+                <input id="phone-number" type="number" placeholder="Enter your phone number" class="input input-bordered w-full" />
                </div>
                 <div class="my-6">
                   <label for="email">Email ID</label>
                 <input type="email" placeholder="Enter your email id" class="input input-bordered w-full" />
                 </div>
-                <!-- <button onclick="my_modal_1.showModal()" class="btn bg-theme-color w-full">Next</button> -->
               </form>
                <!-- modal starts -->
-                  <!-- Open the modal using ID.showModal() method -->
-                  <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
-                  <button onclick="my_modal_1.showModal()" class="btn bg-theme-color w-full">Next</button>
+                  <button id="next-btn" onclick="my_modal_1.showModal()" class="btn bg-theme-color w-full" disabled>Next</button>
                   <dialog id="my_modal_1" class="modal">
                     <div class="modal-box flex flex-col items-center justify-center gap-3">
                       <img src="./images/success.png" alt="">
@@ -347,7 +347,7 @@
                       <div class="modal-action">
                         <form method="dialog">
                           <!-- if there is a button in form, it will close the modal -->
-                          <button class="btn bg-theme-color text-white font-semibold rounded-xl">Continue</button>
+                          <a href="#top" onclick="refresh()" class="btn bg-theme-color text-white font-semibold rounded-xl">Continue</a>
                         </form>
                       </div>
                     </div>

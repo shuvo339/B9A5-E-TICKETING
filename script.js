@@ -1,10 +1,20 @@
+let count = 0;
 const seatNumbers = document.getElementsByClassName('seat-btn');
 for(const seatNumber of seatNumbers){
     seatNumber.addEventListener('click', function(e){
-        totalSeatsCount(seatNumber);
-        
+        count = count+1;
+        if(count>4){
+            alert('Sorry! You can not buy more than 4 tickets');
+            return;
+        }
+        if(count>=4){
+            document.getElementById('coupon-btn').removeAttribute("disabled");
+        }
+        setValueById('seat-count', count);
+
         updatedAvailableSeats();
         totalPrice();
+
         const seatName = seatNumber.innerText;
         const table = document.getElementById('table-container');
         const tr = document.createElement('tr');
@@ -18,43 +28,29 @@ for(const seatNumber of seatNumbers){
         td2.innerText = 550;
         tr.appendChild(td2);
        table.appendChild(tr);
+       
        e.target.style.backgroundColor = "#1DD100";
        e.target.style.color = "white";
        e.target.setAttribute("disabled", true);
-    
+       document.getElementById('next-btn').removeAttribute("disabled");
     })
 }
 
 function updatedAvailableSeats(){
-    const totalSeats = document.getElementById('total-seat').innerText;
-    const totalSeatsNumber = parseInt(totalSeats);
+    const totalSeatsNumber = getValueById('total-seat');
     const upadatedTotalSeats = totalSeatsNumber -1;
     setValueById('total-seat', upadatedTotalSeats);
 }
 
-function totalSeatsCount(seatId){
-    const initialCountText = document.getElementById('seat-count').innerText;
-    const initialCount = parseInt(initialCountText);
-    const upadatedCount = initialCount + 1;
-    if(upadatedCount>4){
-        alert('You can not buy more than 4 tickets');
-        seatId.setAttribute(disabled, true);
-        return;
-    }
-    setValueById('seat-count', upadatedCount);
-}
-
 function totalPrice(){
-    const totalPriceText = document.getElementById('total-price').innerText;
-    const totalPrice = parseInt(totalPriceText);
+    const totalPrice = getValueById('total-price');
     const upadatedTotalPrice = totalPrice + 550;
     setValueById('total-price', upadatedTotalPrice);
     setValueById('grand-price', upadatedTotalPrice);
 }
 
 function discountedPrice(){
-    const totalPriceText = document.getElementById('total-price').innerText;
-    const totalPrice = parseInt(totalPriceText);
+    const totalPrice = getValueById('total-price');
     const couponText = document.getElementById('coupon-text').value;
     if(couponText === 'NEW15'){
        const discountPrice = totalPrice * 0.15;
@@ -72,5 +68,11 @@ function discountedPrice(){
     }
     else{
         alert('Invalid Coupon Code');
+    }
+}
+
+function refresh(){
+    for(const seatNumber of seatNumbers){
+        window.location.reload(true);
     }
 }
